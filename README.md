@@ -16,4 +16,5 @@ curl http://localhost:5047/api/testeauth/
 docker build -t authserver .
 
 ## command to create a container
-docker run -d -p 8080:80 --name authserver_container authserver
+ docker run -d -p 5000:8080 --name authserver_container authserver
+ docker run -d -p 5000:5000 -v ./data:/app/data --name authserver authserver

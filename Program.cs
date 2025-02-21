@@ -7,7 +7,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = "Data Source=users.db";
+var connectionString = "Data Source=/app/data/users.db";
+//var connectionString = "Data Source=users.db";
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlite(connectionString));
 
@@ -40,15 +41,15 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddAuthorization();
 
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy("AllowAll", policy =>
-//     {
-//         policy.AllowAnyOrigin()
-//               .AllowAnyMethod()
-//               .AllowAnyHeader();
-//     });
-// });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers();
 
@@ -58,6 +59,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-//app.UseCors("AllowAll");
+app.UseCors("AllowAll");
 
 app.Run();
