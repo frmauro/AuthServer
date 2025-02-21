@@ -13,6 +13,7 @@ public class TesteAuthController : ControllerBase
     public IActionResult Get()
     {
         var sub = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //var claims = User.Claims.Select(c => $"{c.Type}: {c.Value}").ToList();
 
         if (sub == null)
         {
