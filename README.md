@@ -10,3 +10,10 @@ curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIx
 
 ## curl without Bearer jwt token protected rote
 curl http://localhost:5047/api/testeauth/
+
+
+## build a image docker
+docker build -t authserver .
+
+## command to create a container
+docker run -d -p 8080:80 --name authserver_container authserver
