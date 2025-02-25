@@ -7,10 +7,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = "Data Source=/app/data/users.db";
-//var connectionString = "Data Source=users.db";
+var connectionString = builder.Configuration["MySqlConnection:MySqlConnectionString"];
+
 builder.Services.AddDbContext<AuthDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(5, 7))));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>()
