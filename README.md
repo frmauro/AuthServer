@@ -16,5 +16,12 @@ curl http://localhost:5047/api/testeauth/
 docker build -t authserver .
 
 ## command to create a container
- docker run -d -p 5000:8080 --name authserver_container authserver
+ docker run -e  MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=123 --name mysqlserver --network quark -d -p=3306:3306 mysql/mysql-server:5.7.31
+ docker run -d -p 5000:8080 --name authserver_container --network quark authserver
  docker run -d -p 5000:5000 -v ./data:/app/data --name authserver authserver
+
+
+## connectionsString
+ "MySqlConnectionString": "Server=localhost;DataBase=quarkAuth;Uid=root;Pwd=123"
+ "MySqlConnectionString": "Server= mysqlserver;DataBase=quarkAuth;Uid=root;Pwd=123"
+
