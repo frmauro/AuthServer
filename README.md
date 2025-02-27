@@ -25,3 +25,8 @@ docker build -t authserver .
  "MySqlConnectionString": "Server=localhost;DataBase=quarkAuth;Uid=root;Pwd=123"
  "MySqlConnectionString": "Server= mysqlserver;DataBase=quarkAuth;Uid=root;Pwd=123"
 
+
+ ## run command bat in windows 11. update enviroment docker
+ ./deploy.bat
+
+
