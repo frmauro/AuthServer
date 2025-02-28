@@ -54,6 +54,7 @@ public class AuthController(
         };
 
         var token = new JwtSecurityToken(
+            issuer: configuration["Issuer"]!,
             claims: claims,
             expires: DateTime.UtcNow.AddHours(4),
             signingCredentials: credentials
