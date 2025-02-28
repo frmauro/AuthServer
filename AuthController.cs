@@ -55,6 +55,7 @@ public class AuthController(
 
         var token = new JwtSecurityToken(
             issuer: configuration["Issuer"]!,
+            audience: configuration["Audiences"] ?? string.Empty, // Múltiplos audiences
             claims: claims,
             expires: DateTime.UtcNow.AddHours(4),
             signingCredentials: credentials
