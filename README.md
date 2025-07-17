@@ -3,7 +3,7 @@
 curl -X POST "http://localhost:5047/api/auth/register" -H "Content-Type: application/json" -d '{"email":"teste@email.com","password":"Senha123!"}'
 
 ## curl login
-curl -X POST "http://localhost:5047/api/auth/login" -H "Content-Type: application/json" -d '{"email":"teste@email.com","password":"Senha123!"}'
+curl -X POST "http://localhost:5000/api/auth/login" -H "Content-Type: application/json" -d '{"email":"teste@email.com","password":"Senha123!"}'
 
 ## curl with Bearer jwt token protected rote
 curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMmNkYmUzMC00NmUzLTRhMjctYTBlYS01YzY0ZmFmOTQwZWIiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImp0aSI6ImE1YjhiYjllLWY4NDItNDk3Zi04YjU5LTExODVlODAzM2UzOSIsImV4cCI6MTc0MDA5NTMwN30.OoXfGyixV7WwvS7SZSYMCzXSQTzdz-8QNoxNvIWaJQ4" http://localhost:5047/api/testeauth
@@ -28,5 +28,9 @@ docker build -t authserver .
 
  ## run command bat in windows 11. update enviroment docker
  ./deploy.bat
+
+ ## run command bat/shell script in Ubunto linux. update enviroment docker.
+ chmod +x deploy.sh
+./deploy.sh
 
 
